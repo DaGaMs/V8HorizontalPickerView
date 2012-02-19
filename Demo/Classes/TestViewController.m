@@ -17,21 +17,12 @@
 
 - (id)init {
 	if ((self = [super init])) {
-		titleArray = [[NSMutableArray arrayWithObjects:@"All", @"Today", @"Thursday",
-							@"Wednesday", @"Tuesday", @"Monday", nil] retain];
+		titleArray = [NSMutableArray arrayWithObjects:@"All", @"Today", @"Thursday",
+							@"Wednesday", @"Tuesday", @"Monday", nil];
         // titleArray = [[NSMutableArray array] retain]; // for testing
 		indexCount = 0;
 	}
 	return self;
-}
-
-- (void)dealloc {
-	[pickerView   release];
-	[titleArray   release];
-	[nextButton   release];
-	[reloadButton release];
-	[infoLabel    release];
-    [super dealloc];
 }
 
 - (void)viewDidLoad {
@@ -54,7 +45,6 @@
 	UIImageView *indicator = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"indicator"]];
 	pickerView.selectionIndicatorView = indicator;
 //	pickerView.indicatorPosition = V8HorizontalPickerIndicatorTop; // specify indicator's location
-	[indicator release];
 
 	// add gradient images to left and right of view if desired
 //	UIImageView *leftFade = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"left_fade"]];

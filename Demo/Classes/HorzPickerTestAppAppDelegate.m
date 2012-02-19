@@ -75,12 +75,4 @@
      */
 }
 
-
-- (void)dealloc {
-    [window   release];
-	[testView release];
-    [super dealloc];
-}
-
-
 @end
