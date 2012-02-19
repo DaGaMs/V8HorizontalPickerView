@@ -18,11 +18,6 @@ typedef enum {
 @interface V8HorizontalPickerView : UIView <UIScrollViewDelegate> {
 	UIScrollView *_scrollView;
 
-	// delegate and datasources to feed scroll view. this view only maintains
-	//     a weak reference to these.
-	id <V8HorizontalPickerViewDataSource> dataSource;
-	id <V8HorizontalPickerViewDelegate> delegate;
-
 	// collection of widths of each element.
 	NSMutableArray *elementWidths;
 
@@ -62,20 +57,20 @@ typedef enum {
 	int lastVisibleElement;
 }
 
-@property (nonatomic, assign) id <V8HorizontalPickerViewDataSource> dataSource;
-@property (nonatomic, assign) id <V8HorizontalPickerViewDelegate> delegate;
+@property (nonatomic, weak) id <V8HorizontalPickerViewDataSource> dataSource;
+@property (nonatomic, weak) id <V8HorizontalPickerViewDelegate> delegate;
 @property (nonatomic, readonly) NSInteger numberOfElements;
 @property (nonatomic, readonly) NSInteger currentSelectedIndex;
-@property (nonatomic, retain) UIFont *elementFont;
-@property (nonatomic, retain) UIColor *textColor;
-@property (nonatomic, retain) UIColor *selectedTextColor;
+@property (nonatomic, strong) UIFont *elementFont;
+@property (nonatomic, strong) UIColor *textColor;
+@property (nonatomic, strong) UIColor *selectedTextColor;
 @property (nonatomic, assign) CGPoint selectionPoint;
-@property (nonatomic, retain) UIView *selectionIndicatorView;
+@property (nonatomic, strong) UIView *selectionIndicatorView;
 @property (nonatomic, assign) V8HorizontalPickerIndicatorPosition indicatorPosition;
-@property (nonatomic, retain) UIView *leftEdgeView;
-@property (nonatomic, retain) UIView *rightEdgeView;
-@property (nonatomic, retain) UIView *leftScrollEdgeView;
-@property (nonatomic, retain) UIView *rightScrollEdgeView;
+@property (nonatomic, strong) UIView *leftEdgeView;
+@property (nonatomic, strong) UIView *rightEdgeView;
+@property (nonatomic, strong) UIView *leftScrollEdgeView;
+@property (nonatomic, strong) UIView *rightScrollEdgeView;
 @property (nonatomic, assign) CGFloat scrollEdgeViewPadding;
 
 
